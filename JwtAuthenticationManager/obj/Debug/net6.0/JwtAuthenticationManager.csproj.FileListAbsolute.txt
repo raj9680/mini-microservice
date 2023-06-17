@@ -1,0 +1,12 @@
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\bin\Debug\net6.0\JwtAuthenticationManager.deps.json
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\bin\Debug\net6.0\JwtAuthenticationManager.dll
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\bin\Debug\net6.0\JwtAuthenticationManager.pdb
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.csproj.AssemblyReference.cache
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.AssemblyInfoInputs.cache
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.AssemblyInfo.cs
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.csproj.CoreCompileInputs.cache
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.dll
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\refint\JwtAuthenticationManager.dll
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\JwtAuthenticationManager.pdb
+C:\Users\raj.kumar\Desktop\angular\DemoMicroserviceSolution\JwtAuthenticationManager\obj\Debug\net6.0\ref\JwtAuthenticationManager.dll

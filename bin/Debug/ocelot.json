@@ -1,0 +1,122 @@
+{ /// UPSTREAM(incoming request to the api gateway) & DOWNSTREAM(request to be routed to the apiservices)
+  "Routes": [
+    // Authentication Web Api
+    {
+      "UpstreamPathTemplate": "/api/Account",
+      "UpstreamHttpMethod": [ "Post" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "authenticationwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Account"
+    },
+    // Customer Web API
+    {
+      "DownstreamPathTemplate": "/api/Customer/cx",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customerwebapi",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Customer/cx",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ]
+    },
+    {
+      "UpstreamPathTemplate": "/api/Customer/{customerId}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "customerwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Customer/{customerId}"
+    },
+
+    // Product Web Api
+    {
+      "UpstreamPathTemplate": "/api/Product",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "productwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Product",
+      /// Authentication & Authorization on API Gateway Level
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RouteClaimsRequirement": {
+        "Role": "Administrator"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/Product/{productId}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "productwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Product/{productId}"
+    },
+
+    // Order Web Api
+    {
+      "UpstreamPathTemplate": "/api/Order/cx",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Order/cx",
+      // Rate Limiting
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "60s", // wait for 60s to make another request
+        "PeriodTimespan": 60, // retry after certian number of seconds
+        "Limit": 1 // max request can client send in defined time period
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/Order/{orderId}",
+      "UpstreamHttpMethod": [ "Get", "Delete" ],
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderwebapi",
+          "Port": 80
+        }
+      ],
+      "DownstreamPathTemplate": "/api/Order/{orderId}"
+    }
+  ],
+  /// GlobalConfoguration allows us to overwrite route specific settings
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8001",
+    "RateLimitOptions": {
+      "QuotaExceededMessage": "Request not allowed",
+      "HttpStatusCode": 909
+    }
+  }
+}
